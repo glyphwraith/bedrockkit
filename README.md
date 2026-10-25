@@ -11,7 +11,14 @@ Runs on Windows, Linux, and macOS.
 | `sample` | Generates a sample `level.dat` to experiment with |
 | `serve` | Mock server that answers server-list pings, for testing |
 
-## Build
+## Download
+
+Grab the latest build for your system from the [Releases page](https://github.com/glyphwraith/bedrockkit/releases).
+On Windows, extract the zip and run `bedrockkit.exe` from a terminal.
+
+> Windows may show a SmartScreen warning because the exe is unsigned. Click **More info → Run anyway**.
+
+## Build from source
 ```bash
 cmake -B build
 cmake --build build --config Release
@@ -22,20 +29,12 @@ The binary is `build/bedrockkit` (or `build/Release/bedrockkit.exe` with Visual 
 
 ### Ping a server
 ```bash
-bedrockkit ping play.example.net            # default port 19132
-bedrockkit ping play.example.net 19132 --count 6 --raw
+bedrockkit ping play.cubecraft.net            # default port 19132
+bedrockkit ping play.cubecraft.net 19132 --count 6 --raw
 ```
-```
-Pinging play.example.net (203.0.113.7:19132) ...
-  reply 1: 41.2 ms
 
-  MOTD          Example Network
-  Level name    Lobby
-  Edition       MCPE
-  Version       1.21.0 (protocol 685)
-  Players       42 / 100
-  Game mode     Survival
-```
+![ping example](ping.png)
+
 Bedrock uses **UDP**, so this works even when a TCP port checker says the server is down.
 Formatting codes in the MOTD are stripped for display (`--raw` shows the original).
 
